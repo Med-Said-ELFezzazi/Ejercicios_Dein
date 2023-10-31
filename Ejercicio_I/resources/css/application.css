@@ -1,0 +1,46 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+/* Cambiar el color de fondo de la tabla a rosa */
+.table-view {
+    -fx-background-color: #E75480;
+}
+
+/* Cambiar el color de fondo del encabezado de la tabla */
+.column-header {
+    -fx-background-color: #E75480;
+}
+
+/* Cambiar el color de fondo de un registro seleccionado a rosa */
+.table-row-cell:selected {
+    -fx-background-color: pink;
+}
+
+/* Cambiar el color del texto de la tabla a negro pqa que se ve */
+.table-cell {
+    -fx-text-fill: black;
+}
+
+/* Cambiar el color de fondo de los botones a rosa */
+.button {
+    -fx-background-color: #E75480;
+}
+
+/* Cambiar el color del texto de los botones a blanco */
+.button .text {
+    -fx-fill: white;
+}
+
+/* Estilo para el TextField con esquinas redondeadas */
+.rounded-textfield {
+    -fx-background-radius: 15; /* Ajusta este valor según tus preferencias */
+    -fx-border-radius: 15; /* Ajusta este valor según tus preferencias */
+    -fx-padding: 5 5 5 5; /* Espacio interno para el contenido */
+}
+
+/* Estilo para los botones con esquinas redondeadas */
+.rounded-button {
+    -fx-background-radius: 15; /* Ajusta este valor según tus preferencias */
+    -fx-border-radius: 15; /* Ajusta este valor según tus preferencias */
+    -fx-padding: 5 5 5 5; /* Espacio interno para el contenido */
+}
+
