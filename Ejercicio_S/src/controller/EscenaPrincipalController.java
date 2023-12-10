@@ -21,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -29,8 +28,7 @@ import model.Animal;
 
 
 public class EscenaPrincipalController implements Initializable {
-
-
+	
     @FXML
     private TableView<Animal> tabla;
     
@@ -77,18 +75,13 @@ public class EscenaPrincipalController implements Initializable {
     
     private String nombreSeleccionado;
 
-
-    
-   
-    
-    //private TableColumn<Animal, String> colRuta;
-
     ObservableList<Animal> animales;
-
-    // Añadir el Menu contextual
-    //private ContextMenu tablaContextMenu;
     
-    
+    /**
+     * Abre la ventana modal para agregar un nuevo animal.
+     * @param event Evento que desencadena la acción (clic en el botón).
+     * @throws IOException Si hay un error al cargar la interfaz gráfica.
+     */
     @FXML
     public void agregarAnimal(ActionEvent event) throws IOException {
        
@@ -129,7 +122,10 @@ public class EscenaPrincipalController implements Initializable {
             tabla.refresh();
     }
     
-    //MODIFICAR REGISTRO 
+    /**
+     * Abre la ventana modal para modificar un animal seleccionado.
+     * @param animalSeleccionado Animal seleccionado para editar.
+     */
     @FXML
     public void abrirVentanaModificar(Animal animalSeleccionado) {
         try {
@@ -162,17 +158,6 @@ public class EscenaPrincipalController implements Initializable {
             // Establecer la escena en el escenario
             stage.setScene(scene);
             stage.showAndWait();
-            
-            /*
-            // Obtener los valores seleccionados de la segunda ventana
-            codigoSeleccionado = modalController.getCodigoSeleccionado();
-            nombreSeleccionado = modalController.getNombreSeleccionado();
-
-         // Imprimir los valores obtenidos en la consola
-  
-            System.out.println("Código Seleccionado: " + codigoSeleccionado);
-            System.out.println("Nombre Seleccionado: " + nombreSeleccionado); */
-
             // Actualizar la tabla
             tabla.refresh();
         } catch (IOException e) {
@@ -180,13 +165,26 @@ public class EscenaPrincipalController implements Initializable {
         }
     }
 
+    /**
+     * Obtiene el código del animal seleccionado.
+     * @return Código del animal seleccionado.
+     */
     public String codSeleccionado() {
         return codigoSeleccionado;
     }
+    
+    /**
+     * Obtiene el nombre del animal seleccionado.
+     * @return Nombre del animal seleccionado.
+     */
     public String nomSeleccionado() {
         return nombreSeleccionado;
     }
     
+    /**
+     * Modifica un animal seleccionado.
+     * @param event Evento que desencadena la acción (clic en el botón).
+     */
     @FXML
     void modificarAnimal(ActionEvent event) {
         // Obtén la persona seleccionada en la tabla
@@ -196,8 +194,12 @@ public class EscenaPrincipalController implements Initializable {
         } else {
             mostrarError("Selecciona un regitro para modificar");
         }
-
     }
+    
+    /**
+     * Elimina un animal seleccionado.
+     * @param event Evento que desencadena la acción (clic en el botón).
+     */
     @FXML
     void borrarAnimal(ActionEvent event) {
     	Animal animalSeleccionada = tabla.getSelectionModel().getSelectedItem();
@@ -239,6 +241,11 @@ public class EscenaPrincipalController implements Initializable {
         }
     }
 
+    /**
+     * Abre la ventana modal para consultar datos de un animal.
+     * @param event Evento que desencadena la acción (clic en el botón).
+     * @throws IOException Si hay un error al cargar la interfaz gráfica.
+     */
     @FXML
     void consultarAnimal(ActionEvent event) throws IOException {
     	   // Cargar el archivo FXML de la ventana modal
@@ -275,6 +282,11 @@ public class EscenaPrincipalController implements Initializable {
 	    alertaInfo.showAndWait();
 	}   
     
+	   /**
+     * Inicializa la escena principal.
+     * @param arg0 URL de inicialización (no utilizada en este caso).
+     * @param arg1 ResourceBundle de inicialización (no utilizada en este caso).
+     */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));

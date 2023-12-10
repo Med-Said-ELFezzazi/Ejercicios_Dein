@@ -15,6 +15,11 @@ public class ConsultarController {
     @FXML
     private TextField txtCodigo;
 
+    /**
+     * Maneja el evento de acción cuando se hace clic en el botón "Consultar".
+     * Obtiene el código de la interfaz de usuario, realiza una consulta en la base de datos y muestra el resultado.
+     * @param event El evento de acción desencadenado al hacer clic en el botón "Consultar".
+     */
     @FXML
     void consultar(ActionEvent event) {
     	String cod = txtCodigo.getText().toString();
@@ -27,6 +32,10 @@ public class ConsultarController {
     	}
     }
     
+    /**
+     * Muestra una alerta de error con el mensaje proporcionado.
+     * @param mensaje El mensaje de error que se mostrará.
+     */
     // Ventanas de INFO y ERROR
 	private void mostrarError(String mensaje) {
 	    Alert alertaError = new Alert(Alert.AlertType.ERROR);
@@ -35,6 +44,11 @@ public class ConsultarController {
 	    alertaError.setContentText(mensaje);
 	    alertaError.showAndWait();
 	}
+	
+    /**
+     * Muestra una alerta de información con el mensaje proporcionado.
+     * @param mensaje El mensaje de información que se mostrará.
+     */
 	private void mostrarInformacion(String mensaje) {
 	    Alert alertaInfo = new Alert(Alert.AlertType.INFORMATION);
 	    alertaInfo.setTitle("INFO");

@@ -14,6 +14,20 @@ public class Animal {
 	private Date fechaPrimeraConsulta;
     private byte[] foto;
 	
+    /**
+     * Constructor de la clase Animal.
+     *
+     * @param codigo                Código del animal.
+     * @param nombre                Nombre del animal.
+     * @param especie               Especie del animal.
+     * @param raza                  Raza del animal.
+     * @param sexo                  Sexo del animal.
+     * @param edad                  Edad del animal.
+     * @param peso                  Peso del animal.
+     * @param observacion           Observación sobre el animal.
+     * @param fechaPrimeraConsulta  Fecha de la primera consulta del animal.
+     * @param foto                  Arreglo de bytes que representa la foto del animal.
+     */
 	public Animal(String codigo, String nombre, String especie, String raza, String sexo,
 			int edad, Double peso, String observacion, Date fechaPrimeraConsulta, byte[] foto) {
 		
@@ -108,14 +122,6 @@ public class Animal {
 	public void setFecha_Primera_Consulta(Date fecha_Primera_Consulta) {
 		this.fechaPrimeraConsulta = fecha_Primera_Consulta;
 	}
-
-	/*public String getRuta_foto() {
-		return ruta_foto;
-	}
-
-	public void setRuta_foto(String ruta_foto) {
-		this.ruta_foto = ruta_foto;
-	}*/
 	
 	@Override
 	public boolean equals(Object obj) {

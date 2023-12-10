@@ -19,7 +19,12 @@ public class AnimalDao {
 	
 	private ConexionBD conexion;
 	
-	
+    /**
+     * Consulta la información de un animal en base al código.
+     *
+     * @param codigo Código del animal a consultar.
+     * @return Información del animal en formato de cadena.
+     */
 	public String consultar(String codigo) {
 		String rslt_consulta = "";
 		try {
@@ -47,6 +52,11 @@ public class AnimalDao {
 		return rslt_consulta;
 	}
 	
+    /**
+     * Carga la lista de animales desde la base de datos.
+     *
+     * @return Lista observable de animales.
+     */
 	public ObservableList<Animal> cargarAnimales() {
 		
 		ObservableList<Animal> animales = FXCollections.observableArrayList();
@@ -90,6 +100,12 @@ public class AnimalDao {
 		return animales;
 	}
 	
+    /**
+     * Agrega un nuevo animal a la base de datos.
+     *
+     * @param animal Animal a agregar.
+     * @return true si la operación fue exitosa, false de lo contrario.
+     */
 	public boolean agregarAnimal(Animal animal) {
 	    try {
 	        conexion = new ConexionBD();
@@ -118,24 +134,17 @@ public class AnimalDao {
 	}
 
 	
-	/**
-	 * 
-	 * @param animal
-	 * @return
-	 */
-	// Funcion de eliminar animal en la Base de datos
+    /**
+     * Elimina un animal de la base de datos.
+     *
+     * @param animal Animal a eliminar.
+     * @return true si la operación fue exitosa, false de lo contrario.
+     */
 	public boolean eliminarAnimal(Animal animal) {
 		try {
 			conexion = new ConexionBD();
 			String consulta = "DELETE FROM animal WHERE codigo = '" + animal.getCodigo() + "' AND nombre = '" + animal.getNombre() + "'"; // la manera correcta para eliminar
-																					
 			PreparedStatement pstmt = conexion.getConexion().prepareStatement(consulta);
-			/*
-			 * pstmt.setString(1, persona.getNombre()); pstmt.setString(2,
-			 * persona.getApellidos()); ESO NO FUNCIONA PONEMOS LOS VALORES DIRECTAMENTE
-			 * MEDIANTE UN GET pstmt.setInt(3, persona.getEdad());
-			 */
-
 			int filasAfectadas = pstmt.executeUpdate(consulta);
 			pstmt.close();
 			conexion.CloseConexion();
@@ -145,37 +154,15 @@ public class AnimalDao {
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}	
 	
-	/*
-	public boolean modificarAnimal(Animal animalModificado, Animal animalDestino) {
-		try {
-			conexion = new ConexionBD();
-			String consulta = "UPDATE animal SET codigo = '" + animalModificado.getCodigo() + "' , especie = '"
-			        + animalModificado.getEspecie() + "' , raza = '" + animalModificado.getRaza() + "' , sexo = '"
-			        + animalModificado.getSexo() + "' , edad = '" + animalModificado.getEdad() + "' , peso = '"
-			        + animalModificado.getPeso() + "' , observacion = '" + animalModificado.getObservacion() + "' , foto = '"
-			        + animalModificado.getFoto() + "' WHERE codigo = '" + animalDestino.getCodigo() + "' AND especie = '"
-			        + animalDestino.getEspecie() + "' AND raza = '" + animalDestino.getRaza() + "' AND sexo = '"
-			        + animalDestino.getSexo() + "' AND edad = '" + animalDestino.getEdad() + "' AND peso = '"
-			        + animalDestino.getPeso() + "' AND observacion = '" + animalDestino.getObservacion() + "' AND foto = '"
-			        + animalDestino.getFoto() + "'";
-
-			PreparedStatement pstmt = conexion.getConexion().prepareStatement(consulta);
-
-			int filasAfectadas = pstmt.executeUpdate(consulta);
-			pstmt.close();
-			conexion.CloseConexion();
-
-			return filasAfectadas > 0;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}*/
-	
-	
-	
+    /**
+     * Modifica los datos de un animal en la base de datos.
+     *
+     * @param animalModificado Animal con los datos modificados.
+     * @param animalDestino    Animal con los datos originales.
+     * @return true si la operación fue exitosa, false de lo contrario.
+     */
 	public boolean modificarAnimal(Animal animalModificado, Animal animalDestino) {
 	    try {
 	        conexion = new ConexionBD();
@@ -218,7 +205,13 @@ public class AnimalDao {
 	    }
 	}
 	
-	//metodo para cargar la foto del animal
+    /**
+     * Obtiene la foto de un animal desde la base de datos y la establece en un ImageView.
+     *
+     * @param codigo     Código del animal.
+     * @param nombre     Nombre del animal.
+     * @param imageView  ImageView donde se establecerá la imagen.
+     */
 	public void getFoto(String codigo, String nombre, ImageView imageView) {
 		  try {
 	            conexion = new ConexionBD();
@@ -246,8 +239,5 @@ public class AnimalDao {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-	}
-	
-	 
-	
+	}	
 }

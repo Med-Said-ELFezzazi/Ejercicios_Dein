@@ -80,9 +80,9 @@ public class AltaController {
 	private controller.EscenaPrincipalController escenaPrincipalController;
 	
 	/**
-	 * Initializes attributes for the animal registration view.
-	 * @param animales The list of animals.
-	 * @param a The animal object for editing.
+	 * Inicializar los atributos del animal
+	 * @param animales Lista de animales
+	 * @param Objeto instanciado del animal
 	 */
 	public void initAttributtes(ObservableList<Animal> animales, Animal a) {
 		this.animales = animales;
@@ -107,8 +107,8 @@ public class AltaController {
 	}
 	
 	/**
-	 * Gets the current animal being edited.
-	 * @return The current animal object.
+	 * metodo que devuelve el animal actual
+	 * @return el objeto actual
 	 */
 	public Animal getAnimal() {
 		return animal;
@@ -130,6 +130,10 @@ public class AltaController {
 		this.escenaPrincipalController = controller;
 	}
 	
+	/**
+	 * Muestra una alerta de error con el mensaje proporcionado.
+	 * @param mensaje El mensaje de error que se mostrará.
+	 */
 	private void mostrarError(String mensaje) {
 	    Alert alertaError = new Alert(Alert.AlertType.ERROR);
 	    alertaError.setTitle("ERROR");
@@ -138,6 +142,10 @@ public class AltaController {
 	    alertaError.showAndWait();
 	}
 
+	/**
+	 * Muestra una alerta de información con el mensaje proporcionado.
+	 * @param mensaje El mensaje de información que se mostrará.
+	 */
 	private void mostrarInformacion(String mensaje) {
 	    Alert alertaInfo = new Alert(Alert.AlertType.INFORMATION);
 	    alertaInfo.setTitle("INFO");
@@ -146,6 +154,9 @@ public class AltaController {
 	    alertaInfo.showAndWait();
 	}
 	
+	/**
+	 * limpiar los campos.
+	 */
 	private void limpiarCampos() {
 		txtCod.clear();
 		
@@ -159,11 +170,19 @@ public class AltaController {
 	    
 	}
 	
+	/**
+	 * Cierra la ventana modal.
+	 */
 	private void cerrarVentanaModal() {
 	    Stage stage = (Stage) btnGuardar.getScene().getWindow();
 	    stage.close();
 	}
 
+	/**
+	 * Maneja el evento de acción cuando se hace clic en el botón "Guardar".
+	 * Valida la entrada, crea un nuevo objeto Animal y lo agrega a la lista.
+	 * @param event El evento de acción desencadenado al hacer clic en el botón "Guardar".
+	 */
 	@FXML
 	void guardar(ActionEvent event) {
 	    String codigo = this.txtCod.getText();
@@ -248,6 +267,10 @@ public class AltaController {
         }
     }
 
+    /**
+     * Convierte la imagen seleccionada en el ImageView a un array de bytes.
+     * @return La representación en array de bytes de la imagen seleccionada.
+     */
     private byte[] obtenerFotoSeleccionada() {
         // Assuming you have an ImageView named fotoAnimal to display the selected photo
         Image image = imgAnimal.getImage();
@@ -270,7 +293,12 @@ public class AltaController {
             return null;
         }
     }
-       
+    
+    /**
+     * Maneja el evento de acción cuando se hace clic en el botón "SubirFoto".
+     * Abre un selector de archivos para seleccionar un archivo de imagen para cargar.
+     * @param event El evento de acción desencadenado al hacer clic en el botón "SubirFoto".
+     */
     @FXML
     void subirFoto(ActionEvent event) {  	
     	
@@ -289,7 +317,11 @@ public class AltaController {
         }
        }
     
-    
+    /**
+     * Maneja el evento de acción cuando se hace clic en el botón "Cancelar".
+     * Cierra la ventana modal.
+     * @param event El evento de acción desencadenado al hacer clic en el botón "Cancelar".
+     */
     @FXML
     void cancelar(ActionEvent event) {
 		// Obtener el Stage actual
@@ -297,11 +329,13 @@ public class AltaController {
 
 		// Cerrar la ventana modal
 		stage.close();
-    }
+    } 
     
-    
-    
-    
+    /**
+     * Procesa el archivo de imagen proporcionado y devuelve su contenido como un array de bytes.
+     * @param fotoFile El archivo de imagen que se va a procesar.
+     * @return La representación en array de bytes del archivo de imagen.
+     */
     private byte[] procesarFoto(File fotoFile) {
     	// Procesar el archivo de imagen (puedes implementar esta lógica según tus necesidades)
     	// En este ejemplo, simplemente se lee el contenido del archivo como bytes
@@ -312,6 +346,12 @@ public class AltaController {
     		return null;
     	}
     }
+    
+    /**
+     * Guarda la imagen proporcionada en un archivo con el nombre especificado en el directorio "images".
+     * @param image La imagen que se va a guardar.
+     * @param nombreArchivo El nombre del archivo para guardar la imagen.
+     */
     private void guardarImagen(Image image, String nombreArchivo) {
         // Obtener el directorio resources/images
         String directorioRecursos = getClass().getClassLoader().getResource("images").getFile();
