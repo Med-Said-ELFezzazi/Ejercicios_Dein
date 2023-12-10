@@ -1,0 +1,27 @@
+DROP SCHEMA IF EXISTS `vet`;
+
+CREATE SCHEMA IF NOT EXISTS `vet` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
+
+USE `vet` ;
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+SET AUTOCOMMIT = 0;
+
+START TRANSACTION;
+
+CREATE TABLE Animal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(20) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    raza VARCHAR(50),
+    sexo ENUM('M', 'F') NOT NULL,
+    edad INT NOT NULL,
+    peso DECIMAL(5, 2) NOT NULL,
+    observaciones TEXT,
+    fecha_primera_consulta DATE,
+    foto BLOB
+);
+
+COMMIT;
