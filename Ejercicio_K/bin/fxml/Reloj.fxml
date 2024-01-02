@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerReloj">
+   <children>
+      <ImageView fx:id="s2" fitHeight="100.0" fitWidth="55.0" layoutX="400.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="s1" fitHeight="100.0" fitWidth="55.0" layoutX="338.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="min2" fitHeight="100.0" fitWidth="55.0" layoutX="246.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="min1" fitHeight="100.0" fitWidth="55.0" layoutX="191.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="h2" fitHeight="100.0" fitWidth="55.0" layoutX="92.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="h1" fitHeight="100.0" fitWidth="55.0" layoutX="37.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="25.0" fitWidth="17.0" layoutX="161.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/puntosRojo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="17.0" layoutX="161.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/puntosRojo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="17.0" layoutX="309.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/puntosRojo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="17.0" layoutX="309.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/puntosRojo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
